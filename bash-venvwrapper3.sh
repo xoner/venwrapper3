@@ -38,10 +38,11 @@ lsvirtualenvs() {
     ls $VENVS_HOME
 }
 
-_workon_completions() {
+_venvs_completions() {
     DIR_LIST=$(ls $VENVS_HOME)
 
     COMPREPLY=($(compgen -W "$DIR_LIST" "${COMP_WORDS[1]}"))
 }
 
-complete -F _workon_completions workon
+complete -F _venvs_completions workon
+complete -F _venvs_completions rmvirtualenv
