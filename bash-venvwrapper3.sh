@@ -25,6 +25,15 @@ mkvirtualenv() {
     python3 -m venv $HOME/.virtualenvs3/$1
 }
 
+rmvirtualenv() {
+    if [ -z "$1" ]; then
+        echo "No virtual env specified to delete."
+        exit 2
+    fi
+
+    rm -rf $VENVS_HOME/$1
+}
+
 lsvirtualenvs() {
     ls $VENVS_HOME
 }
